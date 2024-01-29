@@ -16,5 +16,18 @@
       <description>Hello World! </description>
     </item>
     
+    <item>
+      <title>Segmentation Testing</title>
+      <link>https://meistsec.github.io/post/segtesting/</link>
+      <pubDate>Mon, 08 May 2023 13:22:54 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/segtesting/</guid>
+      <description>NMAP PLAYBOOK
+Basic Host Discovery Order
+   Execute Switches In Order Flow DESCRIPTION     -sn nmap 192.168.1.1/24 -sn Disable port scanning. Host discovery only.   -PS nmap 192.168.1.1-5 -PS22-25,80,443 TCP SYN discovery on ports.   -PA nmap 192.168.1.1-5 -PA22-25,80,443 TCP ACK discovery on ports.    UDP discovery and ARP discover methods removed
+nmap -T3 -vvv -sn -iL targets.txt -oX targets_alive
+sudo nmap -PS -p22-25,80,443 -T3 -vvv -iL targets.</description>
+    </item>
+    
   </channel>
 </rss>

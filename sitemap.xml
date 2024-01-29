@@ -2,8 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://meistsec.github.io/post/autobio/</loc>
+    <lastmod>2024-01-29T15:19:30-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://meistsec.github.io/</loc>
-    <lastmod>2024-01-26T12:00:00-05:00</lastmod>
+    <lastmod>2024-01-29T15:19:30-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/personal/</loc>
+    <lastmod>2024-01-29T15:19:30-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/</loc>
+    <lastmod>2024-01-29T15:19:30-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -27,8 +42,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://meistsec.github.io/tags/</loc>
-    <lastmod>2024-01-25T15:22:54-05:00</lastmod>
+    <loc>https://meistsec.github.io/tags/segementation/</loc>
+    <lastmod>2023-05-08T13:22:54-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/post/segtesting/</loc>
+    <lastmod>2023-05-08T13:22:54-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

@@ -6,7 +6,16 @@
     <description>Recent content in MEISTSEC: a Cybersecurity Blog on MEISTSEC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jan 2024 12:00:00 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jan 2024 15:19:30 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autobio</title>
+      <link>https://meistsec.github.io/post/autobio/</link>
+      <pubDate>Mon, 29 Jan 2024 15:19:30 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/autobio/</guid>
+      <description>This is a autobiography page.</description>
+    </item>
+    
     <item>
       <title>Hello_World</title>
       <link>https://meistsec.github.io/post/hello_world/</link>
@@ -14,6 +23,19 @@
       
       <guid>https://meistsec.github.io/post/hello_world/</guid>
       <description>Hello World! </description>
+    </item>
+    
+    <item>
+      <title>Segmentation Testing</title>
+      <link>https://meistsec.github.io/post/segtesting/</link>
+      <pubDate>Mon, 08 May 2023 13:22:54 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/segtesting/</guid>
+      <description>NMAP PLAYBOOK
+Basic Host Discovery Order
+   Execute Switches In Order Flow DESCRIPTION     -sn nmap 192.168.1.1/24 -sn Disable port scanning. Host discovery only.   -PS nmap 192.168.1.1-5 -PS22-25,80,443 TCP SYN discovery on ports.   -PA nmap 192.168.1.1-5 -PA22-25,80,443 TCP ACK discovery on ports.    UDP discovery and ARP discover methods removed
+nmap -T3 -vvv -sn -iL targets.txt -oX targets_alive
+sudo nmap -PS -p22-25,80,443 -T3 -vvv -iL targets.</description>
     </item>
     
     <item>
