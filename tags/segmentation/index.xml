@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on MEISTSEC</title>
-    <link>https://meistsec.github.io/tags/blog/</link>
-    <description>Recent content in blog on MEISTSEC</description>
+    <title>segmentation on MEISTSEC</title>
+    <link>https://meistsec.github.io/tags/segmentation/</link>
+    <description>Recent content in segmentation on MEISTSEC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jan 2024 15:22:54 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hello_World</title>
-      <link>https://meistsec.github.io/post/hello/hello_world/</link>
-      <pubDate>Thu, 25 Jan 2024 15:22:54 -0500</pubDate>
-      
-      <guid>https://meistsec.github.io/post/hello/hello_world/</guid>
-      <description>Hello World! </description>
-    </item>
-    
+    <lastBuildDate>Mon, 08 May 2023 13:22:54 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/segmentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Segmentation Testing</title>
       <link>https://meistsec.github.io/post/segtest/segtesting/</link>

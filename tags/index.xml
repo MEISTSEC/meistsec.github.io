@@ -6,7 +6,25 @@
     <description>Recent content in Tags on MEISTSEC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jan 2024 15:22:54 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jan 2024 10:49:19 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bof</title>
+      <link>https://meistsec.github.io/tags/bof/</link>
+      <pubDate>Tue, 30 Jan 2024 10:49:19 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/tags/bof/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentesting</title>
+      <link>https://meistsec.github.io/tags/pentesting/</link>
+      <pubDate>Tue, 30 Jan 2024 10:49:19 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/tags/pentesting/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blog</title>
       <link>https://meistsec.github.io/tags/blog/</link>
@@ -26,11 +44,11 @@
     </item>
     
     <item>
-      <title>segementation</title>
-      <link>https://meistsec.github.io/tags/segementation/</link>
+      <title>segmentation</title>
+      <link>https://meistsec.github.io/tags/segmentation/</link>
       <pubDate>Mon, 08 May 2023 13:22:54 -0500</pubDate>
       
-      <guid>https://meistsec.github.io/tags/segementation/</guid>
+      <guid>https://meistsec.github.io/tags/segmentation/</guid>
       <description></description>
     </item>
     
