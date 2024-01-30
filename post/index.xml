@@ -8,12 +8,14 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Jan 2024 12:00:00 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Autobio</title>
-      <link>https://meistsec.github.io/post/autobio/</link>
-      <pubDate>Mon, 29 Jan 2024 15:19:30 -0500</pubDate>
+      <title>The Meist- A Buffer Overflow Attack Framework.</title>
+      <link>https://meistsec.github.io/post/brainpan/</link>
+      <pubDate>Tue, 30 Jan 2024 10:49:19 -0500</pubDate>
       
-      <guid>https://meistsec.github.io/post/autobio/</guid>
-      <description>This is a autobiography page.</description>
+      <guid>https://meistsec.github.io/post/brainpan/</guid>
+      <description>3/30/2022
+So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.
+Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities.</description>
     </item>
     
     <item>
@@ -31,11 +33,10 @@
       <pubDate>Mon, 08 May 2023 13:22:54 -0500</pubDate>
       
       <guid>https://meistsec.github.io/post/segtesting/</guid>
-      <description>NMAP PLAYBOOK
+      <description>(/images/nmap.png) #NMAP PLAYBOOK
 Basic Host Discovery Order
    Execute Switches In Order Flow DESCRIPTION     -sn nmap 192.168.1.1/24 -sn Disable port scanning. Host discovery only.   -PS nmap 192.168.1.1-5 -PS22-25,80,443 TCP SYN discovery on ports.   -PA nmap 192.168.1.1-5 -PA22-25,80,443 TCP ACK discovery on ports.    UDP discovery and ARP discover methods removed
-nmap -T3 -vvv -sn -iL targets.txt -oX targets_alive
-sudo nmap -PS -p22-25,80,443 -T3 -vvv -iL targets.</description>
+nmap -T3 -vvv -sn -iL targets.txt -oX targets_alive</description>
     </item>
     
   </channel>

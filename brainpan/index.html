@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>The Meist. A buffer overflow attack framework. | MEISTSEC</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="3/30/2022
+So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.
+Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://meistsec.github.io/brainpan/">
+    
+
+    <meta property="og:title" content="The Meist. A buffer overflow attack framework." />
+<meta property="og:description" content="3/30/2022
+So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.
+Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://meistsec.github.io/brainpan/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2024-01-30T10:49:19-05:00" />
+<meta property="article:modified_time" content="2024-01-30T10:49:19-05:00" /><meta property="og:site_name" content="MEISTSEC" />
+
+<meta itemprop="name" content="The Meist. A buffer overflow attack framework.">
+<meta itemprop="description" content="3/30/2022
+So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.
+Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities."><meta itemprop="datePublished" content="2024-01-30T10:49:19-05:00" />
+<meta itemprop="dateModified" content="2024-01-30T10:49:19-05:00" />
+<meta itemprop="wordCount" content="866">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Meist. A buffer overflow attack framework."/>
+<meta name="twitter:description" content="3/30/2022
+So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.
+Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  
+  <header class="cover bg-top" style="background-image: url('https://meistsec.github.io/images/truck.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        MEISTSEC
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/meistsec" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">The Meist. A buffer overflow attack framework.</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          The Meist. A buffer overflow attack framework.
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>3/30/2022</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220330_122314-1.png" alt=""></p>
+<p>So, I initially tackled this target like most—reconnaissance, enumeration, and eventually getting stuck and seeking an external solution. In gaining an understanding of staging buffer overflow attacks, I learned that there is an operating procedure to direct the process—multiple scripts, leveraging Immunity Debugger for the proof of concept, and eventually securing a shell.</p>
+<p>Similar methods are demonstrated in numerous walk-throughs on the Internet. However, these examples lack flexibility on replicating the process for like targets and vulnerabilities. So, I decided to dig a little deeper.</p>
+<p>One of the best explanations of how this type of attack is staged can be studied in Heath Adam’s buffer overflow presentation –</p>
+<p><a href="https://www.youtube.com/watch?v=ncBblM920jw">https://www.youtube.com/watch?v=ncBblM920jw</a></p>
+<p>His explanation of the anatomy/composition of the “buffer stack” really puts this concept into perspective.</p>
+<p>Instead of following a similar procedure like many others who have reviewed this machine. I decided to tackle this challenge from an unconventional approach. I have been yearning to challenge myself in undertaking a Python project to give myself a better understanding of the scripting language.</p>
+<p>So, I figured why not tackle two birds with one stone and automate the attack process, which I could easily modify for future encounters. In the coming future, I plan to further develop the Buffer Overflow Framework as I progress in my Python learning. Please review the code for a comprehensive understanding of how this attack procedure is implemented.</p>
+<p>“The Meist” A Buffer Overflow Framework</p>
+<p><a href="https://github.com/MEISTSEC/THEMEIST">https://github.com/MEISTSEC/THEMEIST</a></p>
+<p>Cheers!</p>
+<h1 id="the-attack-process">The Attack Process</h1>
+<h2 id="initial-recon">Initial Recon</h2>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145050.png" alt=""></p>
+<p>[sudo nmap -sC -sV -p- -pN] will give you a more detailed,but time-consuming enumeration with its nse scripting and full port analysis</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145133-1024x383.png" alt=""></p>
+<p>Port 9999 in browser</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145150-1024x519.png" alt=""></p>
+<p>Port 10000 in browser</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145606-1024x304.png" alt=""></p>
+<p>Conduct a gobuster scan against port 10000 which reveals the [/bin] directory</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145628-1024x277.png" alt=""></p>
+<p>brainpan.exe is being hosted within the /bin directory</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145743-2.png" alt=""></p>
+<p>netcat call of the application</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_145919-1.png" alt=""></p>
+<p>wget the application onto your Kali machine</p>
+<h2 id="environment-setup">Environment Setup</h2>
+<ol>
+<li>Start Microsoft Windows Virtual machine and within “virus and threat protection,” turn off everything to include real-time protection in manage settings.</li>
+<li>The intention is to place this executable in a controlled environment in our local network to stage a buffer overflow attack. Once our proof of concept is functional, we can leverage it against the TryHackMe server room.</li>
+<li>Within Kali, in the directory where brainpan.exe is located, run the following command to host the file:</li>
+<li><code>python3 -m http.server 8000</code></li>
+<li>In windows, create a /brainpan directory to receive brainpan.exe from the hosted Kali directory in the previous step. Run the following command in powershell:</li>
+<li><code>certutil -urlcache -f http://LHOSTKALI:8000/brainpan.exe brainpan.exe</code></li>
+</ol>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150113.png" alt=""></p>
+<p>Throughout the testing of this exploit you will continually reopen brainpan.exe and Immunity Debugger as an administrator.</p>
+<ol>
+<li>With brainpan.exe running as an admin (each time). Also open Immunity Debugger as an admin (likewise throughout this process).</li>
+<li>In Immunity, select and attach brainpan.exe.</li>
+<li>Press the red arrow icon to start Immunity Debugger’s import of brainpan.exe.</li>
+</ol>
+<h2 id="the-meist">THE MEIST</h2>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150323.png" alt=""></p>
+<p>Programmed automation fuzzing the application</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150345.png" alt=""></p>
+<p>Set the working folder in Immunity Debugger using Mona with the above command</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150407-1.png" alt=""></p>
+<p>Fuzzer crashes the app at 600 bytes</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150526-1.png" alt=""></p>
+<p>Copy the generated pattern creation variable for step 3</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150556.png" alt=""></p>
+<p>Import/paste the previously copied pattern generated data</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150611.png" alt=""></p>
+<p>Run in immunity debugger</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150726-2.png" alt=""></p>
+<p>Take note of the EIP. It contains the normal pattern line. Specifically the offset (524)</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150806-1024x113.png" alt=""></p>
+<p>Enter offset here</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150855.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_150930.png" alt=""></p>
+<p>Enter into Immunity Debugger</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151038.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151019-3.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151108.png" alt=""></p>
+<p>Type in the location of bytearray.bin</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151205-1.png" alt=""></p>
+<p>Step 3</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151222.png" alt=""></p>
+<p>Copy the Badchar generation and input it into the next field presented</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151257.png" alt=""></p>
+<p>The Badchar generation was inputted into THEMEIST.py script as a variable and placed in payload</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151321.png" alt=""></p>
+<p>Take note of the ESP output</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151355-1024x287.png" alt=""></p>
+<p>Run the mona command with the ESP register point</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151426.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151445.png" alt=""></p>
+<p>This will display the BadChars needed to be identified</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151527-1024x128.png" alt=""></p>
+<p>Enter the Badchars</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151544.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151606.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151639.png" alt=""></p>
+<p>Information was rewritten to bytearray.bin</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151718.png" alt=""></p>
+<p>Option 4</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151734-2.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151920.png" alt=""></p>
+<p>Enter Badchars into Immunity Debugger</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_151929.png" alt=""></p>
+<p>Note the “Jump esp”</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152131-1024x73.png" alt=""></p>
+<p>This part can be confusing. Ensure you document the retn variable and input it in little endian format “essentially reversed” at the prompt</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152152-1024x44.png" alt=""></p>
+<p>Select Y if you did not download the github package or the individual SHELLPOPPER.py script</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152231.png" alt=""></p>
+<p>Option 5</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152318-1024x166.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152407.png" alt=""></p>
+<p>Option 6</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152422.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152432.png" alt=""></p>
+<p>In your Kali instance, run [nc -lvnp 4444] to initiate a listener</p>
+<p>In Kali run the following command in a new terminal window to setup a listener:</p>
+<p><code>nc -lvnp 4444</code></p>
+<p>And in another Kali terminal run:</p>
+<p><code>python SHELLPOPPER.py</code></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152711.png" alt=""></p>
+<p>Shell Popper in action with the TGT IP and Port</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_152727-1.png" alt=""></p>
+<p>The Buffer Overflow proof of concept was successful. We have spawned a local shell from our testing Windows VM environment.</p>
+<h2 id="attacking-the-thm-hosted-application">Attacking the THM Hosted Application</h2>
+<p>You will rerun the msfvenom command to create a new 32 bit payload for a Linux reverse shell to implement into the downloaded SHELLPOPPER.py script. This payload utilizes the tun0 interface established through your OpenVPN connection with TryHackME.</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_210133.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_203601.png" alt=""></p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_203821.png" alt=""></p>
+<p>Command shell opened. Use the above commands to stabalize the shell</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_203841.png" alt=""></p>
+<p>Puck seems to be an unprivileged user</p>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_203902.png" alt=""></p>
+<p>Do some OSINT on documented privilege escalation attacks against Ubuntu 12.10, as well as <a href="http://gtfobins.github.io/">gtfobins.github.io</a> for Unix binaries used to bypass local security restrictions.</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_204726-1.png" alt=""></p>
+<p>sudo -l reveals the anansi_util can be executed as root w/out a password</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_204755.png" alt=""></p>
+<p>A few options available. However, only the manual option seems to be accessible with current creds</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_205043.png" alt=""></p>
+<p>Run the manual “man” command with the less argument</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_205059.png" alt=""></p>
+<p>By running the [!bash] command we elevate “puck’s” privileges to the root user</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_205123.png" alt=""></p>
+<p>Elevated privs</p>
+<p><img src="https://meistsec.com/wp-content/uploads/2022/03/Screenshot_20220329_205249-1024x355.png" alt=""></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://meistsec.github.io/" >
+    &copy;  MEISTSEC 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/meistsec" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
