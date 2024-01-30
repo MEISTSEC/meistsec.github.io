@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redteam on MEISTSEC</title>
+    <link>https://meistsec.github.io/tags/redteam/</link>
+    <description>Recent content in redteam on MEISTSEC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 May 2023 15:02:43 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/redteam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Approaching the Attack Chain</title>
+      <link>https://meistsec.github.io/post/attackchain1/attackchain/</link>
+      <pubDate>Thu, 25 May 2023 15:02:43 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/attackchain1/attackchain/</guid>
+      <description>05/25/2023:
+Phishing, Domain Abuse/Typo-Squatting, Chat-Bots, and C2 Deployment… This proof of concept is for educational purposes only. All resources are my own, and no individuals or sock puppets were harmed during the testing process.
+From my initial review of Impostoor Technology Services https://impostoor.com the company offers various global data storage services for its customers.
+I pursued an approach of active and passive reconnaissance techniques to gather valuable information about the target network and its users.</description>
+    </item>
+    
+  </channel>
+</rss>

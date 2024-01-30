@@ -6,14 +6,17 @@
     <description>Recent content in blog on MEISTSEC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jan 2024 15:22:54 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 15:02:43 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello_World</title>
-      <link>https://meistsec.github.io/post/hello/hello_world/</link>
-      <pubDate>Thu, 25 Jan 2024 15:22:54 -0500</pubDate>
+      <title>Approaching the Attack Chain</title>
+      <link>https://meistsec.github.io/post/attackchain1/attackchain/</link>
+      <pubDate>Thu, 25 May 2023 15:02:43 -0500</pubDate>
       
-      <guid>https://meistsec.github.io/post/hello/hello_world/</guid>
-      <description>Hello World! </description>
+      <guid>https://meistsec.github.io/post/attackchain1/attackchain/</guid>
+      <description>05/25/2023:
+Phishing, Domain Abuse/Typo-Squatting, Chat-Bots, and C2 Deployment… This proof of concept is for educational purposes only. All resources are my own, and no individuals or sock puppets were harmed during the testing process.
+From my initial review of Impostoor Technology Services https://impostoor.com the company offers various global data storage services for its customers.
+I pursued an approach of active and passive reconnaissance techniques to gather valuable information about the target network and its users.</description>
     </item>
     
     <item>
@@ -24,6 +27,50 @@
       <guid>https://meistsec.github.io/post/segtest/segtesting/</guid>
       <description>NMAP PLAYBOOK Basic Host Discovery Order    Execute Switches In Order Flow DESCRIPTION     -sn nmap 192.168.1.1/24 -sn Disable port scanning. Host discovery only.   -PS nmap 192.168.1.1-5 -PS22-25,80,443 TCP SYN discovery on ports.   -PA nmap 192.168.1.1-5 -PA22-25,80,443 TCP ACK discovery on ports.    UDP discovery and ARP discover methods removed nmap -T3 -vvv -sn -iL targets.txt -oX targets_alive
 sudo nmap -PS -p22-25,80,443 -T3 -vvv -iL targets.</description>
+    </item>
+    
+    <item>
+      <title>Python &amp; Capture the Flag</title>
+      <link>https://meistsec.github.io/post/pythonctf/pythonctf/</link>
+      <pubDate>Sun, 30 Oct 2022 14:38:28 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/pythonctf/pythonctf/</guid>
+      <description>10/30/2022:
+I love participating in Capture The Flag (CTF) events. When I first became focused on pursuing a career in cybersecurity, I was encouraged by many in the community to compete in the numerous CTFs that are available for all skill levels. What I enjoy most about them, as opposed to standard IT/Security courses, is that the CTF revolves around critical thinking and researching solutions to each challenge. There is no curriculum to reference; it’s all on you!</description>
+    </item>
+    
+    <item>
+      <title>Practical Malware Analysis &amp; Triage</title>
+      <link>https://meistsec.github.io/post/pmat/pmat/</link>
+      <pubDate>Thu, 01 Sep 2022 15:02:43 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/pmat/pmat/</guid>
+      <description>09/01/2022:
+This is an analysis of a malware sample studied during TCM Security’s PMAT Course Practical Malware Analysis &amp;amp; Triage (PMAT)
+Malware Analysis Report
+unknown.exe Malware
+Aug 2022 | Meistsec | v1.0
+Executive Summary SHA256 Hash: 3ACA2A08CF296F1845D6171958EF0FFD1C8BDFC3E48BDD34A605CB1F7468213E
+TCM Security offers HuskyHacks Practical Malware Analysis &amp;amp; Triage Course. The PMAT course has been one of my most enjoyable experiences in learning cybersecurity thus far. The course teaches the fundamentals of malware analysis, reverse engineering, report writing, and establishing rules to prevent malware infections in a network.</description>
+    </item>
+    
+    <item>
+      <title>Firewall Configurations</title>
+      <link>https://meistsec.github.io/post/firewall/firewall_configurations/</link>
+      <pubDate>Tue, 19 Apr 2022 14:24:57 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/firewall/firewall_configurations/</guid>
+      <description>4/19/2022:
+So I decided to make the transition from Ubuntu 20.04 LTS to Fedora Workstation 36 Beta as my host operating system. Over the years, I have become incredibly frustrated with Ubuntu regarding the numerous changes implemented by Canonical (e.g., Snaps, Synaptic, etc. ). These changes have been troublesome because this is an operating system that I have been using since 2008 when I first started my return to studying information technology.</description>
+    </item>
+    
+    <item>
+      <title>Hello_World</title>
+      <link>https://meistsec.github.io/post/hello/hello_world/</link>
+      <pubDate>Thu, 04 Jul 1776 15:22:54 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/hello/hello_world/</guid>
+      <description>Hello World! </description>
     </item>
     
   </channel>

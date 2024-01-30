@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on MEISTSEC</title>
+    <link>https://meistsec.github.io/tags/security/</link>
+    <description>Recent content in security on MEISTSEC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Apr 2022 14:24:57 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firewall Configurations</title>
+      <link>https://meistsec.github.io/post/firewall/firewall_configurations/</link>
+      <pubDate>Tue, 19 Apr 2022 14:24:57 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/firewall/firewall_configurations/</guid>
+      <description>4/19/2022:
+So I decided to make the transition from Ubuntu 20.04 LTS to Fedora Workstation 36 Beta as my host operating system. Over the years, I have become incredibly frustrated with Ubuntu regarding the numerous changes implemented by Canonical (e.g., Snaps, Synaptic, etc. ). These changes have been troublesome because this is an operating system that I have been using since 2008 when I first started my return to studying information technology.</description>
+    </item>
+    
+  </channel>
+</rss>

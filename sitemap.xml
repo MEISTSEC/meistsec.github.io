@@ -12,23 +12,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://meistsec.github.io/post/attackchain1/attackchain/</loc>
+    <lastmod>2023-05-25T15:02:43-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://meistsec.github.io/tags/blog/</loc>
-    <lastmod>2024-01-25T15:22:54-05:00</lastmod>
+    <lastmod>2023-05-25T15:02:43-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://meistsec.github.io/tags/hello/</loc>
-    <lastmod>2024-01-25T15:22:54-05:00</lastmod>
+    <loc>https://meistsec.github.io/tags/malware/</loc>
+    <lastmod>2023-05-25T15:02:43-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://meistsec.github.io/post/hello/hello_world/</loc>
-    <lastmod>2024-01-25T15:22:54-05:00</lastmod>
+    <loc>https://meistsec.github.io/tags/redteam/</loc>
+    <lastmod>2023-05-25T15:02:43-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://meistsec.github.io/tags/</loc>
-    <lastmod>2024-01-25T15:22:54-05:00</lastmod>
+    <lastmod>2023-05-25T15:02:43-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -39,6 +44,36 @@
   </url><url>
     <loc>https://meistsec.github.io/post/segtest/segtesting/</loc>
     <lastmod>2023-05-08T13:22:54-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/ctf/</loc>
+    <lastmod>2022-10-30T14:38:28-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/python/</loc>
+    <lastmod>2022-10-30T14:38:28-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/post/pythonctf/pythonctf/</loc>
+    <lastmod>2022-10-30T14:38:28-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/post/pmat/pmat/</loc>
+    <lastmod>2022-09-01T15:02:43-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/post/firewall/firewall_configurations/</loc>
+    <lastmod>2022-04-19T14:24:57-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/security/</loc>
+    <lastmod>2022-04-19T14:24:57-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -54,6 +89,16 @@
   </url><url>
     <loc>https://meistsec.github.io/post/brainpan/brainpan/</loc>
     <lastmod>2022-03-30T10:49:19-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/tags/hello/</loc>
+    <lastmod>1776-07-04T15:22:54-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://meistsec.github.io/post/hello/hello_world/</loc>
+    <lastmod>1776-07-04T15:22:54-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

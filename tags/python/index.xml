@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on MEISTSEC</title>
+    <link>https://meistsec.github.io/tags/python/</link>
+    <description>Recent content in python on MEISTSEC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Oct 2022 14:38:28 -0500</lastBuildDate><atom:link href="https://meistsec.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python &amp; Capture the Flag</title>
+      <link>https://meistsec.github.io/post/pythonctf/pythonctf/</link>
+      <pubDate>Sun, 30 Oct 2022 14:38:28 -0500</pubDate>
+      
+      <guid>https://meistsec.github.io/post/pythonctf/pythonctf/</guid>
+      <description>10/30/2022:
+I love participating in Capture The Flag (CTF) events. When I first became focused on pursuing a career in cybersecurity, I was encouraged by many in the community to compete in the numerous CTFs that are available for all skill levels. What I enjoy most about them, as opposed to standard IT/Security courses, is that the CTF revolves around critical thinking and researching solutions to each challenge. There is no curriculum to reference; it’s all on you!</description>
+    </item>
+    
+  </channel>
+</rss>
